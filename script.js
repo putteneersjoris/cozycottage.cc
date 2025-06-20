@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
     initGalleryLightbox();
     initLoadingScreen();
+    initLanguageToggle();
 });
 
 function initScrollHeader() {
@@ -154,4 +155,33 @@ function initLoadingScreen() {
             setTimeout(() => loadingScreen.remove(), 500);
         }, 1000);
     });
+}
+
+function initLanguageToggle() {
+    const langBtn = document.querySelector('.lang-toggle');
+    let currentLang = localStorage.getItem('language') || 'en';
+    
+    langBtn.textContent = currentLang.toUpperCase();
+    if (currentLang === 'nl') {
+        switchLanguage('nl');
+    }
+    
+    langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'nl' : 'en';
+        langBtn.textContent = currentLang.toUpperCase();
+        localStorage.setItem('language', currentLang);
+        switchLanguage(currentLang);
+    });
+}
+
+function switchLanguage(lang) {
+    document.querySelectorAll('[data-en][data-nl]').forEach(el => {
+        if (el.tagName === 'A' || el.tagName === 'BUTTON') {
+            el.textContent = el.getAttribute(`data-${lang}`);
+        } else {
+            el.innerHTML = el.getAttribute(`data-${lang}`);
+        }
+    });
+    
+    document.documentElement.lang = lang;
 }
