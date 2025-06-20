@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cozy Cottage - Luxury Retreat in Eeklo, Belgium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c9a961;
+            --light: #f8f6f3;
+            --text: #3a3a3a;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+            background: var(--light);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 246, 243, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: var(--shadow);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            transition: padding 0.3s ease;
+        }
+        
+        header.scrolled nav {
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .reserve-btn {
+            background: var(--primary);
+            color: white !important;
+            padding: 12px 30px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .reserve-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .reserve-btn::after {
+            display: none;
+        }
+        
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('coworking_1.jpg') center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            letter-spacing: 10px;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0;
+            animation: fadeInUp 1s 0.3s forwards;
+            color: white;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+        }
+        
+        .about {
+            background: white;
+        }
+        
+        .about-header {
+            text-align: center;
+	    max-height: 10vh;
+        }
+        
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+        
+        .image-showcase-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 400px;
+        }
+        
+        .image-showcase-item.large {
+            grid-column: span 2;
+            height: 500px;
+        }
+        
+        .image-showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .image-showcase-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 5px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .features {
+            background: var(--light);
+            padding: 100px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .feature-content {
+            padding: 40px;
+        }
+        
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        .gallery {
+            background: white;
+            padding: 100px 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 300px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+        
+        .gallery-item:nth-child(7) {
+            grid-row: span 2;
+            height: 620px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .amenities {
+            background: var(--light);
+            padding: 100px 0;
+        }
+        
+        .amenities-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .amenity-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .amenity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .amenity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .location {
+            background: white;
+            padding: 100px 0;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .location-content p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        
+        .map-container {
+            height: 500px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact h2::after {
+            background: var(--accent);
+        }
+        
+        .contact-info {
+            margin-top: 50px;
+            font-size: 1rem;
+            line-height: 2.5;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-info p:first-child {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            font-weight: 400;
+        }
+        
+        .contact-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .contact .btn-primary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .features-grid,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .image-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-showcase-item,
+            .image-showcase-item.large {
+                height: 300px;
+                grid-column: auto;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item,
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(7) {
+                grid-column: auto;
+                grid-row: auto;
+                height: 250px;
+            }
+            
+            .amenities-list {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .location-content p {
+                font-size: 1rem;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .feature-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">THE COZY COTTAGE</div>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#amenities">AMENITIES</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#location">LOCATION</a></li>
+                <li><a href="https://www.booking.com/hotel/be/the-cozy-cottage.html?aid=390156&label=duc511jc-1FCAsoFUIQdGhlLWNvenktY290dGFnZUgzWANo3QGIAQGYATG4ARnIAQzYAQHoAQH4AQKIAgGoAgO4ApGPxMIGwAIB0gIkYTBjNWZkN2YtNmUxNy00MTdhLWEyYWQtZWVhYzExMzk5ZDFm2AIF4AIB&sid=dc71c6d08d92b6cc9c83994f68b480a9&age=0&checkin=2025-06-21&checkout=2025-06-22&dest_id=-1957424&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1750140830&srpvid=5cb72bc9ca4e018a&type=total&ucfs=1&activeTab=main" class="reserve-btn" target="_blank">BOOK NOW</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>THE COZY COTTAGE</h1>
+                <p class="subtitle">Peaceful Retreat in Eeklo, Belgium</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-header">
+                <h2>WELCOME TO THE COZY COTTAGE</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: #666;">
+                    A luxurious retreat offering sun terrace, garden, restaurant, bar, and free WiFi.<br>
+                    Experience a comfortable and elegant stay located between Ghent and Bruges. Close to the Belgian coase and Zeeland (NL).
+<br>
+
+Coworking
+Voor grotere gezelschappen (vanaf 4 pers.) werken we samen met Convent³ te Eeklo.
+
+                </p>
+            </div>
+            
+<!--            <div class="image-showcase">
+                <div class="image-showcase-item large">
+                    <img src="14.jpg" alt="Main Cottage View">
+                </div>
+                <div class="image-showcase-item">
+                    <img src="16.jpg" alt="Interior Living Space">
+                </div>
+                <div class="image-showcase-item">
+                    <img src="9.jpg" alt="Garden View">
+                </div>
+            </div>
+--!>
+        </div>
+    </section>
+
+
+
+
+    <section class="features">
+        <div class="container">
+            <h2> EXPERIENCES</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="5.jpg" alt="Comfortable Accommodations" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Accommodations</h3>
+                        <p>The Cozy Cottage in Eeklo offers a sun terrace, garden, bar, and free WiFi. A restaurant is located next door. Private check-in and check-out services are available.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="6.jpg" alt="Dining Experience" class="feature-image">
+                    <div class="feature-content">
+                        <h3>co-working space</h3>
+                        <p>there is a beautiful co working space available with free wifi in the garden. a bar is also included. </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="7.jpg" alt="Leisure Facilities" class="feature-image">
+                    <div class="feature-content">
+                        <h3>parking</h3>
+                        <p>free parking is also available </p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="8.jpg" alt="Location & Attractions" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Location & Attractions</h3>
+                        <p>Located 34 mi from Ostend - Bruges International Airport, the property is near Damme Golf (8.7 mi) and the Basilica of the Holy Blood (13 mi). Free on-site parking is available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>PROPERTY GALLERY</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="9.jpg" alt="Pool Area">
+            min-height: 100vh;
+                </div>
+                <div class="gallery-item">
+                    <img src="10.jpg" alt="Restaurant">
+                </div>
+                <div class="gallery-item">
+                    <img src="11.jpg" alt="Bedroom">
+                </div>
+                <div class="gallery-item">
+                    <img src="12.jpg" alt="Terrace">
+                </div>
+                <div class="gallery-item">
+                    <img src="13.jpg" alt="Hot Tub">
+                </div>
+                <div class="gallery-item">
+                    <img src="14.jpg" alt="Sauna">
+                </div>
+                <div class="gallery-item">
+                    <img src="15.jpg" alt="Garden">
+                </div>
+                <div class="gallery-item">
+                    <img src="16.jpg" alt="Lounge">
+                </div>
+                <div class="gallery-item">
+                    <img src="17.jpg" alt="Bar">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="coworking_1.jpg" alt="Bar">
+                </div>
+
+
+                <div class="gallery-item">
+                    <img src="coworking_2.jpg" alt="Bar">
+                </div>
+
+
+                <div class="gallery-item">
+                    <img src="coworking_3.jpg" alt="Bar">
+                </div>
+
+
+
+                <div class="gallery-item">
+                    <img src="coworking_3.jpg" alt="Bar">
+                </div>
+
+
+                <div class="gallery-item">
+                    <img src="coworking_3.jpg" alt="Bar">
+                </div>
+
+
+                <div class="gallery-item">
+                    <img src="coworking_3.jpg" alt="Bar">
+                </div>
+
+
+
+
+                <div class="gallery-item">
+                    <img src="coworking_3.jpg" alt="Bar">
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+ <!--   <section id="amenities" class="amenities">
+        <div class="container">
+            <h2>AMENITIES</h2>
+            <div class="amenities-list">
+                <div class="amenity-item">
+                    <div class="amenity-icon">🌿</div>
+                    <h4>Private Garden</h4>
+                    <p>Relax in our beautifully landscaped gardens</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🚴</div>
+                    <h4>Bicycle Parking</h4>
+                    <p>Secure storage for cycling enthusiasts</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">👨‍🍳</div>
+                    <h4>Shared Kitchen</h4>
+                    <p>Fully equipped for your culinary needs</p>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-icon">🎾</div>
+                    <h4>Play Area</h4>
+                    <p>Outdoor activities for all ages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+--!>
+
+
+    <section id="location" class="location">
+        <div class="container">
+            <h2>DISCOVER EEKLO</h2>
+            <div class="location-content">
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                        The Cozy Cottage is perfectly positioned in the charming town of Eeklo, Belgium. Just 34 miles from 
+                        Ostend-Bruges International Airport, our location offers easy access to major attractions while 
+                        maintaining the tranquility of countryside living.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #666; margin-top: 20px;">
+                        Explore nearby Damme Golf course (8.7 miles) or visit the historic Basilica of the Holy Blood 
+                        (13 miles). With free on-site parking and bicycle facilities, discovering the Belgian countryside 
+                        has never been easier.
+                    </p>
+                    <a href="https://www.booking.com/hotel/be/the-cozy-cottage.html?aid=390156&label=duc511jc-1FCAsoFUIQdGhlLWNvenktY290dGFnZUgzWANo3QGIAQGYATG4ARnIAQzYAQHoAQH4AQKIAgGoAgO4ApGPxMIGwAIB0gIkYTBjNWZkN2YtNmUxNy00MTdhLWEyYWQtZWVhYzExMzk5ZDFm2AIF4AIB&sid=dc71c6d08d92b6cc9c83994f68b480a9&age=0&checkin=2025-06-21&checkout=2025-06-22&dest_id=-1957424&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1750140830&srpvid=5cb72bc9ca4e018a&type=total&ucfs=1&activeTab=main" class="btn-primary" style="margin-top: 40px;" target="_blank">
+                        Check Availability
+                    </a>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2496.3714156168!2d3.5555!3d51.1847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c371e6d5a4f5db%3A0x3f0a6d53b5f7e5d0!2sBalgerhoeke%2089%2C%209900%20Eeklo%2C%20Belgium!5e0!3m2!1sen!2sus!4v1652890231456!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>BOOK YOUR STAY</h2>
+            <div class="contact-info">
+                <p>89 Balgerhoeke, 9900 Eeklo, Belgium</p>
+                <p>Highly rated by guests • Free WiFi • Free Parking</p>
+                <p>© The Cozy Cottage, Eeklo, Belgium 2025. All rights reserved.</p>
+            </div>
+            <div class="contact-buttons">
+                <a href="https://www.booking.com/hotel/be/the-cozy-cottage.html?aid=390156&label=duc511jc-1FCAsoFUIQdGhlLWNvenktY290dGFnZUgzWANo3QGIAQGYATG4ARnIAQzYAQHoAQH4AQKIAgGoAgO4ApGPxMIGwAIB0gIkYTBjNWZkN2YtNmUxNy00MTdhLWEyYWQtZWVhYzExMzk5ZDFm2AIF4AIB&sid=dc71c6d08d92b6cc9c83994f68b480a9&age=0&checkin=2025-06-21&checkout=2025-06-22&dest_id=-1957424&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&soh=1&sr_order=popularity&srepoch=1750140830&srpvid=5cb72bc9ca4e018a&type=total&ucfs=1&activeTab=main" class="btn-primary" target="_blank">
+                    Book on Booking.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 500) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.image-showcase-item, .feature-card, .gallery-item, .amenity-item, .location-content > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        const mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.innerHTML = '<span></span><span></span><span></span>';
+        mobileMenuBtn.className = 'mobile-menu-btn';
+        mobileMenuBtn.style.cssText = `
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            width: 30px;
+            height: 30px;
+        `;
+        
+        const spans = mobileMenuBtn.querySelectorAll('span');
+        spans.forEach((span, i) => {
+            span.style.cssText = `
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: var(--primary);
+                position: absolute;
+                left: 0;
+                transition: all 0.3s;
+                top: ${i * 10}px;
+            `;
+        });
+        
+        document.querySelector('nav').appendChild(mobileMenuBtn);
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('nav ul');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (window.innerWidth <= 768 && menu.classList.contains('active')) {
+                if (!menu.contains(e.target) && !mobileBtn.contains(e.target)) {
+                    menu.classList.remove('active');
+                    mobileBtn.classList.remove('active');
+                }
+            }
+        });
+        
+        document.querySelectorAll('nav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    const menu = document.querySelector('nav ul');
+                    const mobileBtn = document.querySelector('.mobile-menu-btn');
+                    menu.classList.remove('active');
+                    mobileBtn.classList.remove('active');
+                }
+            });
+        });
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                .mobile-menu-btn {
+                    display: block !important;
+                }
+                nav ul {
+                    position: fixed;
+                    top: 70px;
+                    left: 0;
+                    right: 0;
+                    background: var(--light);
+                    flex-direction: column;
+                    padding: 20px;
+                    transform: translateX(-100%);
+                    transition: transform 0.3s;
+                    box-shadow: var(--shadow);
+                }
+                nav ul.active {
+                    transform: translateX(0);
+                }
+                .mobile-menu-btn.active span:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 10px;
+                }
+                .mobile-menu-btn.active span:nth-child(2) {
+                    opacity: 0;
+                }
+                .mobile-menu-btn.active span:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: 10px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        const loadingScreen = document.createElement('div');
+        loadingScreen.className = 'loading-screen';
+        loadingScreen.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s;
+        `;
+        loadingScreen.innerHTML = '<h2 style="font-family: Playfair Display, serif; font-size: 2rem; color: var(--primary); letter-spacing: 5px;">THE COZY COTTAGE</h2>';
+        document.body.appendChild(loadingScreen);
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => loadingScreen.remove(), 500);
+            }, 1000);
+        });
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                const img = document.createElement('img');
+                img.src = item.querySelector('img').src;
+                img.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                `;
+                overlay.appendChild(img);
+                overlay.addEventListener('click', () => overlay.remove());
+                document.body.appendChild(overlay);
+            });
+        });
+    </script>
+</body>
+</html>
