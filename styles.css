@@ -30,9 +30,9 @@ html {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 70%;
+    margin: 10px auto;
+    padding: 0px 20px;
 }
 
 .btn-primary {
@@ -62,8 +62,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(248, 246, 243, 0.95);
-    backdrop-filter: blur(20px);
+    background: var(--light);
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -719,6 +718,7 @@ i.features {
 
 .owner-introduction {
     background: white;
+background: var(--light);
     padding: 100px 0;
 }
 
@@ -846,6 +846,86 @@ i.features {
 .lang-toggle:hover {
     background: var(--accent);
 }
+
+
+
+
+
+
+
+
+
+.villa-link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.villa-link:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.villa-link {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
