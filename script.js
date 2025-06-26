@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initMobileMenu();
     initGalleryLightbox();
-    initLoadingScreen();
+//    initLoadingScreen();
     initLanguageToggle();
 });
 
@@ -157,9 +157,10 @@ function initLoadingScreen() {
     });
 }
 
+
 function initLanguageToggle() {
     const langBtn = document.querySelector('.lang-toggle');
-    let currentLang = localStorage.getItem('language') || 'en';
+    let currentLang = localStorage.getItem('language') || 'nl';
     
     langBtn.textContent = currentLang.toUpperCase();
     if (currentLang === 'nl') {
@@ -173,6 +174,16 @@ function initLanguageToggle() {
         switchLanguage(currentLang);
     });
 }
+
+
+
+
+
+
+
+
+
+
 
 function switchLanguage(lang) {
     document.querySelectorAll('[data-en][data-nl]').forEach(el => {
