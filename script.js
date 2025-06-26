@@ -6,7 +6,80 @@ document.addEventListener('DOMContentLoaded', function() {
     initGalleryLightbox();
 //    initLoadingScreen();
     initLanguageToggle();
+    initAdaptiveGallery();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function initAdaptiveGallery() {
+    const gallerySections = document.querySelectorAll('.gallery-section');
+    
+    gallerySections.forEach(section => {
+        const galleryItems = section.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach((item, index) => {
+            const img = item.querySelector('img');
+            
+            img.addEventListener('load', () => {
+                const aspectRatio = img.naturalWidth / img.naturalHeight;
+                
+                // Remove any existing classes
+                item.classList.remove('landscape', 'portrait', 'square', 'large');
+                
+                // Make first item in each section large
+                if (index === 0 && galleryItems.length > 3) {
+                    item.classList.add('large');
+                } else if (index === 2 && galleryItems.length > 5) {
+                    item.classList.add('landscape');
+                } else if (index === 4 && galleryItems.length > 6) {
+                    item.classList.add('portrait');
+                } else {
+                    // For regular items, use aspect ratio
+                    if (aspectRatio > 1.4) {
+                        item.classList.add('landscape');
+                    } else if (aspectRatio < 0.7) {
+                        item.classList.add('portrait');
+                    } else {
+                        item.classList.add('square');
+                    }
+                }
+            });
+            
+            if (img.complete) {
+                img.dispatchEvent(new Event('load'));
+            }
+        });
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function initScrollHeader() {
     let lastScroll = 0;
