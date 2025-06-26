@@ -938,6 +938,109 @@ background: var(--light);
     height: 24px;
 }
 
+
+
+
+
+.attractions {
+    background: white;
+    padding: 100px 0;
+}
+
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.attraction-card {
+    background: var(--light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.attraction-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.attraction-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.attraction-card:hover .attraction-image {
+    transform: scale(1.08);
+}
+
+.attraction-content {
+    padding: 35px;
+}
+
+.attraction-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.attraction-card p {
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.attraction-card:nth-child(3n+1) {
+    background: linear-gradient(135deg, #f8f6f3 0%, #f0ebe3 100%);
+}
+
+.attraction-card:nth-child(3n+2) {
+    background: linear-gradient(135deg, #faf9f7 0%, #f2ede5 100%);
+}
+
+.attraction-card:nth-child(3n+3) {
+    background: linear-gradient(135deg, #f9f7f4 0%, #f1ece4 100%);
+}
+
+@media (max-width: 768px) {
+    .attractions-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .attraction-content {
+        padding: 25px;
+    }
+    
+    .attraction-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .attraction-card p {
+        font-size: 0.9rem;
+    }
+    
+    .attraction-image {
+        height: 200px;
+    }
+}
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
     .social-links {
         gap: 20px;
